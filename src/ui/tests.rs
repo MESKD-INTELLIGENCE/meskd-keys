@@ -58,8 +58,12 @@ fn creates_a_key_through_the_dialog() {
     assert!(dir.path().join("id_work").exists());
     assert!(dir.path().join("id_work.pub").exists());
     h.get_by_label("id_work");
-    let text = std::fs::read_to_string(dir.path().join("id_work")).unwrap();
-    assert!(text.contains("ENCRYPTED"));
+    assert!(
+        h.state()
+            .keys
+            .iter()
+            .any(|key| key.name == "id_work" && key.encrypted)
+    );
 }
 
 #[test]

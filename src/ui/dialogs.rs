@@ -185,7 +185,7 @@ impl App {
         &mut self,
         ui: &mut Ui,
         name: &mut String,
-        fingerprint: &mut String,
+        fingerprint: &str,
         error: &mut Option<String>,
     ) -> Next {
         title(ui, "Delete key");

@@ -410,7 +410,10 @@ mod tests {
         let key = &scan(dir.path())[0];
         assert!(key.encrypted);
         let text = fs::read_to_string(key.private.as_ref().unwrap()).unwrap();
-        assert!(text.contains("ENCRYPTED"));
+        let parsed = PrivateKey::from_openssh(&text).unwrap();
+        assert!(parsed.is_encrypted());
+        assert!(parsed.decrypt("wrong passphrase").is_err());
+        assert!(parsed.decrypt("correct horse").is_ok());
     }
 
     #[test]
