@@ -6,6 +6,11 @@
 
 <p align="center">SSH keys and hosts on your desktop. Read them at a glance, make new ones, keep them tidy.</p>
 
+<p align="center">
+  <img src="assets/screenshot-keys.png" width="380" alt="Keys list with fingerprint and passphrase status">
+  <img src="assets/screenshot-hosts.png" width="380" alt="Hosts list from the SSH config">
+</p>
+
 ## Download
 
 Get the latest build from [Releases](https://github.com/MESKD-INTELLIGENCE/meskd-keys/releases/latest).
