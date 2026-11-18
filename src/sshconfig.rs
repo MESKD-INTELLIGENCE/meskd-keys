@@ -112,7 +112,7 @@ pub fn parse(text: &str) -> Vec<HostEntry> {
 }
 
 pub fn add(dir: &Path, host: &NewHost) -> Result<()> {
-    validate(&host)?;
+    validate(host)?;
     let path = config_path(dir);
     let existing = fs::read_to_string(&path).unwrap_or_default();
     if parse(&existing).iter().any(|h| h.alias == host.alias) {

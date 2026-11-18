@@ -244,7 +244,10 @@ impl App {
                         action = Some(Action::OpenFolder);
                     }
                     ui.separator();
-                    if ui.button("Refresh").shortcut_text("Ctrl+R").clicked() {
+                    if ui
+                        .add(egui::Button::new("Refresh").shortcut_text("Ctrl+R"))
+                        .clicked()
+                    {
                         action = Some(Action::Refresh);
                     }
                     if action.is_some() {
