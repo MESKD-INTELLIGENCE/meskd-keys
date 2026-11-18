@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Meskd Keys
+Comment=SSH keys and hosts
+Exec=meskd-keys
+Icon=meskd-keys
+Terminal=false
+Categories=Utility;Security;
+Keywords=ssh;keys;security;
+StartupWMClass=meskd-keys
