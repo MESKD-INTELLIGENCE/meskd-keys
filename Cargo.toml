@@ -1,6 +1,6 @@
 [package]
 name = "meskd-keys"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 rust-version = "1.95"
 description = "SSH key and host manager for Windows and Linux"

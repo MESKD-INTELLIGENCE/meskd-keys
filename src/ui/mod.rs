@@ -397,7 +397,12 @@ impl App {
                     .stroke(Stroke::new(1.0, theme::LINE))
                     .corner_radius(8)
                     .inner_margin(egui::Margin::symmetric(14, 8))
-                    .show(ui, |ui| ui.label(message.as_str()));
+                    .show(ui, |ui| {
+                        ui.add(
+                            egui::Label::new(message.as_str())
+                                .wrap_mode(egui::TextWrapMode::Extend),
+                        );
+                    });
             });
     }
 
@@ -498,7 +503,8 @@ fn key_row(ui: &mut Ui, index: usize, key: &KeyInfo) -> Option<Action> {
                                         )
                                         .truncate()
                                         .selectable(false),
-                                    );
+                                    )
+                                    .on_hover_text(&key.fingerprint);
                                 }
                                 let line = match (&key.problem, &key.note) {
                                     (Some(problem), _) => Some((problem.as_str(), theme::DANGER)),
@@ -603,7 +609,7 @@ fn host_row(ui: &mut Ui, index: usize, host: &HostEntry) -> Option<Action> {
                                 );
                                 let mut line = host.target();
                                 if !host.port.is_empty() {
-                                    line.push_str(&format!(" : {}", host.port));
+                                    line.push_str(&format!(":{}", host.port));
                                 }
                                 ui.add(
                                     egui::Label::new(
