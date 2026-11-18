@@ -197,7 +197,7 @@ impl App {
         if !fingerprint.is_empty() {
             ui.add(
                 egui::Label::new(
-                    RichText::new(fingerprint.as_str())
+                    RichText::new(fingerprint)
                         .monospace()
                         .size(11.5)
                         .color(theme::MUTED),
